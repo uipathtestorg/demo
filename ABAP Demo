@@ -1,0 +1,177 @@
+*&---------------------------------------------------------------------*
+*& Report  Z_WRITE_TO_ZORDERS
+*& Purpose Simple upsert (insert/update) into ZORDERS + unit tests
+*&---------------------------------------------------------------------*
+REPORT z_write_to_zorders.
+
+TABLES: zorders.
+
+"--- Selection screen for a simple CLI-style run
+PARAMETERS:
+  p_ordid   TYPE zorders-order_id    OBLIGATORY,
+  p_custid  TYPE zorders-customer_id OBLIGATORY,
+  p_amount  TYPE zorders-amount      OBLIGATORY.
+
+DATA: gv_action TYPE c.  " 'I' (insert) or 'U' (update)
+
+"--- Validate basic input
+AT SELECTION-SCREEN.
+  PERFORM validate_input.
+
+"--- Main
+START-OF-SELECTION.
+  PERFORM upsert_order USING    p_ordid p_custid p_amount
+                      CHANGING gv_action.
+
+  IF gv_action = 'I'.
+    WRITE: / 'Inserted order', p_ordid.
+  ELSEIF gv_action = 'U'.
+    WRITE: / 'Updated order', p_ordid.
+  ELSE.
+    WRITE: / 'No change performed.'.
+  ENDIF.
+
+"-----------------------------------------------------------------------
+" Forms (procedural)
+"-----------------------------------------------------------------------
+FORM validate_input.
+  IF p_amount < 0.
+    MESSAGE e398(00) WITH 'Amount cannot be negative.'.
+  ENDIF.
+ENDFORM.
+
+FORM upsert_order
+  USING    iv_order_id   TYPE zorders-order_id
+           iv_customer_id TYPE zorders-customer_id
+           iv_amount      TYPE zorders-amount
+  CHANGING ev_action      TYPE c.
+
+  DATA: ls_order TYPE zorders.
+  CLEAR ev_action.
+
+  "Try to read existing row
+  SELECT SINGLE *
+    FROM zorders
+    INTO ls_order
+   WHERE order_id = @iv_order_id.
+
+  IF sy-subrc = 0.
+    "--- Update existing
+    ls_order-customer_id = iv_customer_id.
+    ls_order-amount      = iv_amount.
+    ls_order-modified_at = sy-datum. " adjust if your table uses timestamp
+    UPDATE zorders FROM ls_order.
+    IF sy-subrc = 0.
+      ev_action = 'U'.
+    ELSE.
+      MESSAGE e398(00) WITH 'Update failed for order' iv_order_id.
+    ENDIF.
+  ELSE.
+    "--- Insert new
+    CLEAR ls_order.
+    ls_order-order_id    = iv_order_id.
+    ls_order-customer_id = iv_customer_id.
+    ls_order-amount      = iv_amount.
+    ls_order-created_at  = sy-datum.  " adjust if your table uses timestamp
+    INSERT zorders FROM ls_order.
+    IF sy-subrc = 0.
+      ev_action = 'I'.
+    ELSE.
+      MESSAGE e398(00) WITH 'Insert failed for order' iv_order_id.
+    ENDIF.
+  ENDIF.
+
+ENDFORM.
+
+"-----------------------------------------------------------------------
+" ABAP Unit tests
+" Note: ABAP Unit uses classes, but we are testing the procedural FORMs
+" in this same report. Tests insert a test row and clean it up.
+"-----------------------------------------------------------------------
+CLASS ltc_zorders DEFINITION
+  FINAL
+  FOR TESTING
+  DURATION SHORT
+  RISK LEVEL HARMLESS.
+  PRIVATE SECTION.
+    DATA mv_test_order_id TYPE zorders-order_id.
+    METHODS setup.
+    METHODS teardown.
+    METHODS test_insert_then_update FOR TESTING.
+ENDCLASS.
+
+CLASS ltc_zorders IMPLEMENTATION.
+
+  METHOD setup.
+    mv_test_order_id = 'UT-0001'.  " adjust to your domain length
+    " Ensure a clean start
+    DELETE FROM zorders WHERE order_id = @mv_test_order_id.
+    COMMIT WORK.
+  ENDMETHOD.
+
+  METHOD teardown.
+    " Clean up what the test created/changed
+    DELETE FROM zorders WHERE order_id = @mv_test_order_id.
+    COMMIT WORK.
+  ENDMETHOD.
+
+  METHOD test_insert_then_update.
+    DATA lv_action TYPE c.
+    DATA ls_read   TYPE zorders.
+
+    " 1) Insert
+    PERFORM upsert_order USING    mv_test_order_id 'CUST1' 100
+                         CHANGING lv_action.
+
+    cl_abap_unit_assert=>assert_equals(
+      act = lv_action
+      exp = 'I'
+      msg = 'Expected insert (I) on first upsert.' ).
+
+    SELECT SINGLE * FROM zorders INTO ls_read
+      WHERE order_id = @mv_test_order_id.
+
+    cl_abap_unit_assert=>assert_initial(
+      act = sy-subrc
+      msg = 'Inserted row not found.' ).
+
+    cl_abap_unit_assert=>assert_equals(
+      act = ls_read-customer_id
+      exp = 'CUST1'
+      msg = 'Customer should be CUST1 after insert.' ).
+
+    cl_abap_unit_assert=>assert_equals(
+      act = ls_read-amount
+      exp = 100
+      msg = 'Amount should be 100 after insert.' ).
+
+    " 2) Update
+    CLEAR: lv_action, ls_read.
+    PERFORM upsert_order USING    mv_test_order_id 'CUST2' 200
+                         CHANGING lv_action.
+
+    cl_abap_unit_assert=>assert_equals(
+      act = lv_action
+      exp = 'U'
+      msg = 'Expected update (U) on second upsert.' ).
+
+    SELECT SINGLE * FROM zorders INTO ls_read
+      WHERE order_id = @mv_test_order_id.
+
+    cl_abap_unit_assert=>assert_initial(
+      act = sy-subrc
+      msg = 'Updated row not found.' ).
+
+    cl_abap_unit_assert=>assert_equals(
+      act = ls_read-customer_id
+      exp = 'CUST2'
+      msg = 'Customer should be CUST2 after update.' ).
+
+    cl_abap_unit_assert=>assert_equals(
+      act = ls_read-amount
+      exp = 200
+      msg = 'Amount should be 200 after update.' ).
+
+  ENDMETHOD.
+
+ENDCLASS.
