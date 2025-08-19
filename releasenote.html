@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP Release Notes - Version 1.0.0</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0 20px;
+            color: #333;
+        }
+        header {
+            background: #0073e6;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            color: #0073e6;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 5px 0;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #0073e6;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            text-align: center;
+            background: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SAP Release Notes</h1>
+        <p>Version 1.0.0 | Released on 2025-08-19 | Environment: Production</p>
+    </header>
+
+    <nav>
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#executive-summary">Executive Summary</a></li>
+            <li><a href="#new-features">New Features</a></li>
+            <li><a href="#improvements">Improvements</a></li>
+            <li><a href="#bug-fixes">Bug Fixes</a></li>
+        </ul>
+    </nav>
+
+    <section id="executive-summary">
+        <h2>Executive Summary</h2>
+        <p>This release introduces foundational utilities for managing order data in SAP systems. The new features ensure clear, auditable, and deterministic handling of order creation and amendments, reducing manual intervention and improving data accuracy.</p>
+    </section>
+
+    <section id="new-features">
+        <h2>New Features</h2>
+        <article>
+            <h3>Order Maintenance Utilities (Procedural ABAP)</h3>
+            <p>Introduced a procedural ABAP report to manage order data in the custom DDIC table <code>ZORDERS</code>. This feature includes:</p>
+            <ul>
+                <li>Separate actions for creating and amending orders.</li>
+                <li>Input validation to ensure non-negative amounts.</li>
+                <li>Automatic timestamping for creation and amendments.</li>
+                <li>Comprehensive ABAP Unit tests with over 90% coverage.</li>
+            </ul>
+        </article>
+    </section>
+
+    <section id="improvements">
+        <h2>Improvements</h2>
+        <article>
+            <h3>Create Order (Error if Exists)</h3>
+            <p>Enhanced the order creation process to include robust error handling:</p>
+            <ul>
+                <li>Prevents duplicate order creation by checking for existing <code>ORDER_ID</code>.</li>
+                <li>Rejects negative amounts with clear error messages.</li>
+                <li>Ensures no database changes occur in case of errors.</li>
+            </ul>
+        </article>
+    </section>
+
+    <footer>
+        <p>For support, contact us at <a href="mailto:support@example.com">support@example.com</a>.</p>
+        <p>Documentation: <a href="https://example.com/docs">https://example.com/docs</a></p>
+    </footer>
+</body>
+</html>
