@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Release Notes - SAP Version 1.0.0</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #0073e6;
+            color: white;
+            padding: 1rem 2rem;
+        }
+        header h1 {
+            margin: 0;
+        }
+        main {
+            padding: 2rem;
+        }
+        section {
+            margin-bottom: 2rem;
+        }
+        h2 {
+            color: #0073e6;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0.5rem 0;
+        }
+        nav ul li a {
+            color: #0073e6;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        footer a {
+            color: #0073e6;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Release Notes - SAP Version 1.0.0</h1>
+        <p>Release Date: September 9, 2025 | Environment: Production</p>
+    </header>
+    <main>
+        <section>
+            <h2>Table of Contents</h2>
+            <nav>
+                <ul>
+                    <li><a href="#executive-summary">Executive Summary</a></li>
+                    <li><a href="#new-features">New Features</a></li>
+                    <li><a href="#improvements">Improvements</a></li>
+                    <li><a href="#bug-fixes">Bug Fixes</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <section id="executive-summary">
+            <h2>Executive Summary</h2>
+            <p>This release introduces foundational utilities for managing orders in SAP, ensuring clear and auditable handling of order data. Key features include the ability to create and amend orders with robust validation and timestamping.</p>
+        </section>
+
+        <section id="new-features">
+            <h2>New Features</h2>
+            <article>
+                <h3>Order Maintenance Utilities (Procedural ABAP)</h3>
+                <p>Introduced a new ABAP report to manage orders in the custom DDIC table <code>ZORDERS</code>. This utility allows users to:</p>
+                <ul>
+                    <li>Create new orders with unique IDs, customer details, and amounts.</li>
+                    <li>Amend existing orders with updated information.</li>
+                </ul>
+                <p>Key benefits include reduced manual intervention, prevention of accidental overwrites, and a clear audit trail for order data management.</p>
+            </article>
+        </section>
+
+        <section id="improvements">
+            <h2>Improvements</h2>
+            <article>
+                <h3>Create Order (Error if Exists)</h3>
+                <p>Enhanced the order creation process to include robust validation:</p>
+                <ul>
+                    <li>Prevents duplicate order creation by checking for existing order IDs.</li>
+                    <li>Rejects negative amounts with clear error messages.</li>
+                </ul>
+                <p>These improvements ensure data integrity and user-friendly error handling.</p>
+            </article>
+        </section>
+
+        <section id="bug-fixes">
+            <h2>Bug Fixes</h2>
+            <p>No bug fixes were included in this release.</p>
+        </section>
+    </main>
+    <footer>
+        <p>For support, contact us at <a href="mailto:support@example.com">support@example.com</a>. For more information, visit our <a href="https://documentation.example.com">documentation</a>.</p>
+    </footer>
+</body>
+</html>
