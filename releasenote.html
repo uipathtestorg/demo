@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP Release Notes - Version 1.0.0</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0 20px;
+            color: #333;
+        }
+        header {
+            background: #0073e6;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            color: #0073e6;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 5px 0;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #0073e6;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            text-align: center;
+            background: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SAP Release Notes</h1>
+        <p>Version 1.0.0 | Released on October 14, 2025 | Environment: Production</p>
+    </header>
+
+    <nav>
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#executive-summary">Executive Summary</a></li>
+            <li><a href="#new-features">New Features</a></li>
+            <li><a href="#improvements">Improvements</a></li>
+            <li><a href="#bug-fixes">Bug Fixes</a></li>
+            <li><a href="#known-issues">Known Issues</a></li>
+            <li><a href="#deprecations">Deprecations/Breaking Changes</a></li>
+            <li><a href="#technical-notes">Technical Notes</a></li>
+            <li><a href="#how-to-update">How to Update</a></li>
+        </ul>
+    </nav>
+
+    <section id="executive-summary">
+        <h2>Executive Summary</h2>
+        <p>This release introduces foundational utilities for managing order data in SAP systems. The new features enhance data integrity, reduce manual intervention, and provide a robust framework for future enhancements.</p>
+    </section>
+
+    <section id="new-features">
+        <h2>New Features</h2>
+        <article>
+            <h3>Order Maintenance Utilities (Procedural ABAP)</h3>
+            <p>Introduced a procedural ABAP report to manage order data in the custom DDIC table <code>ZORDERS</code>. This feature allows users to:</p>
+            <ul>
+                <li>Create new orders with accurate customer and amount details.</li>
+                <li>Amend existing orders with clear audit trails.</li>
+            </ul>
+            <p>Key benefits include:</p>
+            <ul>
+                <li>Prevention of accidental overwrites by separating creation and amendment actions.</li>
+                <li>Reduction of manual intervention for order data management.</li>
+                <li>Provision of a foundational pattern for future order maintenance utilities.</li>
+            </ul>
+        </article>
+    </section>
+
+    <section id="improvements">
+        <h2>Improvements</h2>
+        <article>
+            <h3>Create Order (Error Handling)</h3>
+            <p>Enhanced the order creation process with robust error handling:</p>
+            <ul>
+                <li>Prevents duplicate order creation by raising an error if the order ID already exists.</li>
+                <li>Validates input to ensure amounts are non-negative, with clear error messages for invalid entries.</li>
+            </ul>
+        </article>
+    </section>
+
+    <section id="bug-fixes">
+        <h2>Bug Fixes</h2>
+        <p>No bug fixes were included in this release.</p>
+    </section>
+
+    <section id="known-issues">
+        <h2>Known Issues</h2>
+        <p>No known issues have been reported for this release.</p>
+    </section>
+
+    <section id="deprecations">
+        <h2>Deprecations/Breaking Changes</h2>
+        <p>No deprecations or breaking changes are included in this release.</p>
+    </section>
+
+    <section id="technical-notes">
+        <h2>Technical Notes</h2>
+        <p>No additional technical notes are available for this release.</p>
+    </section>
+
+    <section id="how-to-update">
+        <h2>How to Update</h2>
+        <p>No specific update instructions are provided for this release.</p>
+    </section>
+
+    <footer>
+        <p>For support, contact us at <a href="mailto:support@example.com">support@example.com</a>.</p>
+        <p>Documentation: <a href="https://example.com/documentation">https://example.com/documentation</a></p>
+    </footer>
+</body>
+</html>
