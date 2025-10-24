@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP Release Notes - Version 1.0.0</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #4CAF50;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SAP Release Notes</h1>
+        <p>Version: 1.0.0 | Release Date: October 24, 2025 | Environment: Production</p>
+    </header>
+    <main>
+        <section id="executive-summary">
+            <h2>Executive Summary</h2>
+            <p>We are excited to announce the release of SAP version 1.0.0, which introduces new features and improvements to enhance your experience. This update focuses on streamlining order management processes and improving operational efficiency.</p>
+        </section>
+
+        <section id="table-of-contents">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#new-features">New Features</a></li>
+                <li><a href="#improvements">Improvements</a></li>
+                <li><a href="#bug-fixes">Bug Fixes</a></li>
+                <li><a href="#known-issues">Known Issues</a></li>
+                <li><a href="#deprecations">Deprecations/Breaking Changes</a></li>
+                <li><a href="#technical-notes">Technical Notes</a></li>
+                <li><a href="#how-to-update">How to Update</a></li>
+            </ul>
+        </section>
+
+        <section id="new-features">
+            <h2>New Features</h2>
+            <ul>
+                <li>
+                    <strong>Order Maintenance Utilities (Procedural ABAP):</strong> This new feature introduces procedural ABAP reports to create new orders and amend existing orders in the custom DDIC table. It ensures clear, auditable, and deterministic handling of order data.
+                    <ul>
+                        <li>Prevents accidental overwrites by separating creation and amendment actions.</li>
+                        <li>Reduces manual intervention for order data management.</li>
+                        <li>Provides a foundational pattern for future order maintenance utilities.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="improvements">
+            <h2>Improvements</h2>
+            <ul>
+                <li>
+                    <strong>Create Order (Error if Exists):</strong> Enhancements to the order creation process ensure that new business transactions are registered with accurate customer and amount details. The system now prevents duplicate entries and invalid data inputs.
+                    <ul>
+                        <li>New orders can be created with accurate customer and amount details.</li>
+                        <li>Duplicate entries are automatically rejected with a clear error message.</li>
+                        <li>Negative amounts are disallowed, ensuring data integrity.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="bug-fixes">
+            <h2>Bug Fixes</h2>
+            <p>No bug fixes were included in this release.</p>
+        </section>
+
+        <section id="known-issues">
+            <h2>Known Issues</h2>
+            <p>No known issues have been reported for this release.</p>
+        </section>
+
+        <section id="deprecations">
+            <h2>Deprecations/Breaking Changes</h2>
+            <p>No deprecations or breaking changes are included in this release.</p>
+        </section>
+
+        <section id="technical-notes">
+            <h2>Technical Notes</h2>
+            <p>No additional technical notes are available for this release.</p>
+        </section>
+
+        <section id="how-to-update">
+            <h2>How to Update</h2>
+            <p>No specific update instructions are provided for this release.</p>
+        </section>
+    </main>
+    <footer>
+        <p>For support, please contact us at <a href="mailto:support@example.com">support@example.com</a>.</p>
+        <p>For more information, visit our <a href="https://documentation.example.com">documentation</a>.</p>
+    </footer>
+</body>
+</html>
