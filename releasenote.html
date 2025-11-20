@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP Release Notes - Version 1.0.0</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #4CAF50;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .toc ul li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SAP Release Notes</h1>
+        <p>Version: 1.0.0 | Release Date: November 20, 2025 | Environment: Production</p>
+    </header>
+    <main>
+        <section id="executive-summary">
+            <h2>Executive Summary</h2>
+            <p>This release introduces new features and improvements to enhance the efficiency and accuracy of order management processes. The updates focus on procedural ABAP utilities for creating and amending orders in a custom database table, ensuring clear and auditable handling of order data.</p>
+        </section>
+
+        <section class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#executive-summary">Executive Summary</a></li>
+                <li><a href="#new-features">New Features</a></li>
+                <li><a href="#improvements">Improvements</a></li>
+                <li><a href="#bug-fixes">Bug Fixes</a></li>
+            </ul>
+        </section>
+
+        <section id="new-features">
+            <h2>New Features</h2>
+            <article>
+                <h3>Order Maintenance Utilities (Procedural ABAP)</h3>
+                <p>This feature introduces procedural ABAP reports to create new orders and amend existing ones in the custom database table ZORDERS. Key benefits include:</p>
+                <ul>
+                    <li>Prevention of accidental overwrites by separating creation and amendment actions.</li>
+                    <li>Reduction of manual intervention for order data management.</li>
+                    <li>Establishment of a foundational pattern for future order maintenance utilities.</li>
+                </ul>
+                <p>Scope includes:</p>
+                <ul>
+                    <li>ABAP report Z_ORDER_MAINT with options to create or amend orders.</li>
+                    <li>Input validation for non-negative amounts.</li>
+                    <li>Timestamping for creation and amendment actions.</li>
+                    <li>Comprehensive ABAP Unit tests to ensure functionality.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="improvements">
+            <h2>Improvements</h2>
+            <article>
+                <h3>Create Order (Error Handling for Existing Orders)</h3>
+                <p>Enhancements to the order creation process include:</p>
+                <ul>
+                    <li>Validation to prevent duplicate order creation.</li>
+                    <li>Error messages for duplicate orders, guiding users to use the amend option.</li>
+                    <li>Improved error handling for negative amounts, ensuring data integrity.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="bug-fixes">
+            <h2>Bug Fixes</h2>
+            <p>No bug fixes were included in this release.</p>
+        </section>
+    </main>
+    <footer>
+        <p>For support, contact us at <a href="mailto:support@example.com">support@example.com</a>. For more information, visit our <a href="https://documentation.example.com">documentation</a>.</p>
+    </footer>
+</body>
+</html>
