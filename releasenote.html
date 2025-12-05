@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP Release Notes - Version 1.0.0</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #4CAF50;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SAP Release Notes</h1>
+        <p>Version: 1.0.0 | Release Date: December 5, 2025 | Environment: Production</p>
+    </header>
+    <main>
+        <section id="executive-summary">
+            <h2>Executive Summary</h2>
+            <p>This release introduces new features and improvements to enhance the efficiency and accuracy of order management processes. Key updates include the development of procedural ABAP reports for creating and amending orders in a custom database table, ensuring streamlined operations and reduced manual intervention.</p>
+        </section>
+
+        <section id="table-of-contents">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#executive-summary">Executive Summary</a></li>
+                <li><a href="#new-features">New Features</a></li>
+                <li><a href="#improvements">Improvements</a></li>
+                <li><a href="#bug-fixes">Bug Fixes</a></li>
+            </ul>
+        </section>
+
+        <section id="new-features">
+            <h2>New Features</h2>
+            <article>
+                <h3>Order Maintenance Utilities (Procedural ABAP)</h3>
+                <p>This feature introduces procedural ABAP reports to streamline the creation and amendment of orders in the custom database table. The new functionality ensures clear, auditable, and deterministic handling of order data, preventing accidental overwrites and reducing manual intervention.</p>
+                <ul>
+                    <li>Separate actions for creating and amending orders.</li>
+                    <li>Input validation to ensure data accuracy and integrity.</li>
+                    <li>Automatic timestamping for order creation and amendments.</li>
+                    <li>Comprehensive ABAP unit tests to ensure functionality and reliability.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="improvements">
+            <h2>Improvements</h2>
+            <article>
+                <h3>Create Order (Error Handling Enhancements)</h3>
+                <p>Enhancements have been made to the order creation process to improve error handling and ensure data accuracy:</p>
+                <ul>
+                    <li>Duplicate order IDs are now flagged with a clear error message, preventing accidental overwrites.</li>
+                    <li>Negative amounts are rejected with a user-friendly error message, ensuring data integrity.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="bug-fixes">
+            <h2>Bug Fixes</h2>
+            <p>No bug fixes were included in this release.</p>
+        </section>
+
+    </main>
+    <footer>
+        <p>For support, contact us at <a href="mailto:support@sap.com">support@sap.com</a>.</p>
+        <p>For more information, visit our <a href="https://documentation.sap.com">documentation</a>.</p>
+    </footer>
+</body>
+</html>
