@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP Release Notes - Version 1.0.0</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #4CAF50;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SAP Release Notes</h1>
+        <p>Version: 1.0.0 | Release Date: December 22, 2025 | Environment: Production</p>
+    </header>
+    <main>
+        <section id="executive-summary">
+            <h2>Executive Summary</h2>
+            <p>We are excited to announce the release of SAP version 1.0.0, which introduces new features and improvements to enhance your experience. This update focuses on improving order management processes and ensuring data accuracy and efficiency.</p>
+        </section>
+        <section id="table-of-contents">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#executive-summary">Executive Summary</a></li>
+                <li><a href="#new-features">New Features</a></li>
+                <li><a href="#improvements">Improvements</a></li>
+                <li><a href="#known-issues">Known Issues</a></li>
+                <li><a href="#deprecations">Deprecations/Breaking Changes</a></li>
+                <li><a href="#technical-notes">Technical Notes</a></li>
+                <li><a href="#how-to-update">How to Update</a></li>
+            </ul>
+        </section>
+        <section id="new-features">
+            <h2>New Features</h2>
+            <article>
+                <h3>Order Maintenance Utilities (Procedural ABAP)</h3>
+                <p>This feature introduces procedural ABAP reports to create new orders and amend existing orders in the custom DDIC table. It ensures clear, auditable, and deterministic handling of order data.</p>
+                <ul>
+                    <li>Prevents accidental overwrites by separating creation and amendment actions.</li>
+                    <li>Reduces manual intervention for order data management.</li>
+                    <li>Provides a foundational pattern for future order maintenance utilities.</li>
+                </ul>
+                <p>Scope includes:</p>
+                <ul>
+                    <li>ABAP report with two radio-button actions: Create or Amend.</li>
+                    <li>Input parameters: Order ID, Customer ID, Amount.</li>
+                    <li>Input validation for non-negative amounts.</li>
+                    <li>Timestamping on creation and amendment.</li>
+                    <li>ABAP Unit tests covering both flows.</li>
+                </ul>
+                <p>Definition of Done:</p>
+                <ul>
+                    <li>Both Create and Amend flows work per acceptance criteria.</li>
+                    <li>ABAP Unit tests executed successfully with at least 90% coverage.</li>
+                    <li>Peer review and QA sign-off completed.</li>
+                </ul>
+            </article>
+        </section>
+        <section id="improvements">
+            <h2>Improvements</h2>
+            <article>
+                <h3>Create Order (Error if Exists)</h3>
+                <p>This improvement allows back-office order operations users to create new orders in the custom DDIC table, ensuring accurate registration of business transactions.</p>
+                <p>Key enhancements include:</p>
+                <ul>
+                    <li>Successful creation of new orders with accurate customer and amount details.</li>
+                    <li>Prevention of duplicate orders with clear error messages.</li>
+                    <li>Validation to reject negative amounts during order creation.</li>
+                </ul>
+            </article>
+        </section>
+        <section id="known-issues">
+            <h2>Known Issues</h2>
+            <p>No known issues have been reported for this release.</p>
+        </section>
+        <section id="deprecations">
+            <h2>Deprecations/Breaking Changes</h2>
+            <p>No deprecations or breaking changes are included in this release.</p>
+        </section>
+        <section id="technical-notes">
+            <h2>Technical Notes</h2>
+            <p>No additional technical notes are available for this release.</p>
+        </section>
+        <section id="how-to-update">
+            <h2>How to Update</h2>
+            <p>To update to SAP version 1.0.0, follow the standard update procedures outlined in the documentation. Ensure all prerequisites are met before proceeding with the update.</p>
+        </section>
+    </main>
+    <footer>
+        <p>For support, contact us at <a href="mailto:support@example.com">support@example.com</a>.</p>
+        <p>Documentation: <a href="https://example.com/documentation">https://example.com/documentation</a></p>
+    </footer>
+</body>
+</html>
