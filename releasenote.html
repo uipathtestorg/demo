@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP Release Notes - Version 1.0.0</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #4CAF50;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .toc ul li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SAP Release Notes</h1>
+        <p>Version 1.0.0 | Released: January 8, 2026 | Environment: Production</p>
+    </header>
+    <main>
+        <section id="executive-summary">
+            <h2>Executive Summary</h2>
+            <p>This release introduces foundational utilities for managing orders in SAP systems, ensuring streamlined and auditable processes for creating and amending order data.</p>
+        </section>
+        <section class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#executive-summary">Executive Summary</a></li>
+                <li><a href="#new-features">New Features</a></li>
+                <li><a href="#improvements">Improvements</a></li>
+                <li><a href="#bug-fixes">Bug Fixes</a></li>
+            </ul>
+        </section>
+        <section id="new-features">
+            <h2>New Features</h2>
+            <article>
+                <h3>Order Maintenance Utilities (Procedural ABAP)</h3>
+                <p>This feature delivers procedural ABAP reports to create new orders and amend existing orders in the custom DDIC table. It ensures clear, auditable, and deterministic handling of order data.</p>
+                <ul>
+                    <li>Prevents accidental overwrites by separating creation and amendment actions.</li>
+                    <li>Reduces manual intervention for order data management.</li>
+                    <li>Provides a foundational pattern for future order maintenance utilities.</li>
+                </ul>
+            </article>
+        </section>
+        <section id="improvements">
+            <h2>Improvements</h2>
+            <article>
+                <h3>Create Order (error if exists)</h3>
+                <p>Enhancements to the order creation process include:</p>
+                <ul>
+                    <li>Validation to prevent duplicate orders.</li>
+                    <li>Rejection of negative amounts with clear error messages.</li>
+                    <li>Timestamping for newly created orders.</li>
+                </ul>
+            </article>
+        </section>
+        <section id="bug-fixes">
+            <h2>Bug Fixes</h2>
+            <p>No bug fixes were included in this release.</p>
+        </section>
+    </main>
+    <footer>
+        <p>For support, contact us at <a href="mailto:support@example.com">support@example.com</a>. Documentation is available <a href="https://example.com/documentation">here</a>.</p>
+    </footer>
+</body>
+</html>
