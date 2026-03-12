@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP Release Notes - Version 1.0.0</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #4CAF50;
+        }
+        .toc {
+            margin-bottom: 20px;
+        }
+        .toc a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SAP Release Notes</h1>
+        <p>Version 1.0.0 | Released: March 12, 2026 | Environment: Production</p>
+    </header>
+    <main>
+        <section>
+            <h2>Table of Contents</h2>
+            <ul class="toc">
+                <li><a href="#executive-summary">Executive Summary</a></li>
+                <li><a href="#new-features">New Features</a></li>
+                <li><a href="#improvements">Improvements</a></li>
+                <li><a href="#bug-fixes">Bug Fixes</a></li>
+                <li><a href="#known-issues">Known Issues</a></li>
+                <li><a href="#deprecations">Deprecations/Breaking Changes</a></li>
+                <li><a href="#technical-notes">Technical Notes</a></li>
+                <li><a href="#how-to-update">How to Update</a></li>
+            </ul>
+        </section>
+
+        <section id="executive-summary">
+            <h2>Executive Summary</h2>
+            <p>This release introduces foundational utilities for managing orders in SAP, ensuring accurate and auditable handling of order data. Key features include procedural ABAP reports for creating and amending orders, along with robust input validation and timestamping capabilities.</p>
+        </section>
+
+        <section id="new-features">
+            <h2>New Features</h2>
+            <article>
+                <h3>Order Maintenance Utilities (Procedural ABAP)</h3>
+                <p>Provides procedural ABAP reports to create new orders and amend existing ones in the custom DDIC table. This ensures clear, auditable, and deterministic handling of order data.</p>
+                <ul>
+                    <li>Prevents accidental overwrites by separating creation and amendment actions.</li>
+                    <li>Reduces manual intervention for order data management.</li>
+                    <li>Includes timestamping for creation and amendment actions.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="improvements">
+            <h2>Improvements</h2>
+            <article>
+                <h3>Create Order (Error if Exists)</h3>
+                <p>Enhances the order creation process with robust error handling and validation:</p>
+                <ul>
+                    <li>Rejects duplicate orders with clear error messages.</li>
+                    <li>Validates input to prevent negative amounts.</li>
+                    <li>Ensures accurate registration of new business transactions.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="bug-fixes">
+            <h2>Bug Fixes</h2>
+            <p>No bug fixes were included in this release.</p>
+        </section>
+
+        <section id="known-issues">
+            <h2>Known Issues</h2>
+            <p>No known issues were reported for this release.</p>
+        </section>
+
+        <section id="deprecations">
+            <h2>Deprecations/Breaking Changes</h2>
+            <p>No deprecations or breaking changes were introduced in this release.</p>
+        </section>
+
+        <section id="technical-notes">
+            <h2>Technical Notes</h2>
+            <p>No additional technical notes were provided for this release.</p>
+        </section>
+
+        <section id="how-to-update">
+            <h2>How to Update</h2>
+            <p>Follow the standard SAP update procedures to apply this release. Ensure all dependencies are met before proceeding.</p>
+        </section>
+    </main>
+    <footer>
+        <p>For support, contact us at <a href="mailto:support@sap.com">support@sap.com</a>. Documentation is available at <a href="https://www.sap.com/documentation">SAP Documentation</a>.</p>
+    </footer>
+</body>
+</html>
